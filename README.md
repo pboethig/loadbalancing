@@ -1,4 +1,4 @@
-# Simple loadbalancer with nginx and docker and docker-compose
+## Simple loadbalancer with nginx and docker and docker-compose
 just a poc how to scale nginx instances on a loadbalanced szenario.
 - there are 2 nginx. One as loadbalancer with a dynamic proxypass And one as a webserver behind this reverse proxy
 
@@ -9,3 +9,5 @@ just a poc how to scale nginx instances on a loadbalanced szenario.
 
 # usage
 docker-compose up -d
+- ## scale a webserver:
+  docker-compose scale front1=3
