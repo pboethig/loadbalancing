@@ -14,5 +14,6 @@ docker-compose up -d
   
 - ## test getting a response:
   docker inspect loadbalancing_proxy_1
+  
   take this ip and wget this ip
  
