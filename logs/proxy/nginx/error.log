@@ -1,0 +1,20 @@
+2017/04/14 16:23:00 [error] 14#14: unexpected A record in DNS response
+2017/04/14 16:23:05 [error] 14#14: unexpected A record in DNS response
+2017/04/14 16:23:10 [error] 14#14: unexpected A record in DNS response
+2017/04/14 16:23:15 [error] 14#14: unexpected A record in DNS response
+2017/04/14 16:56:46 [error] 14#14: unexpected A record in DNS response
+2017/04/14 16:57:15 [error] 14#14: unexpected A record in DNS response
+2017/04/14 16:57:20 [error] 14#14: unexpected A record in DNS response
+2017/04/14 17:45:47 [emerg] 1#1: unknown directive "<!DOCTYPE" in /etc/nginx/sites-enabled/index.html:4
+2017/04/14 17:46:22 [emerg] 1#1: unknown directive "<!DOCTYPE" in /etc/nginx/sites-enabled/index.html:4
+2017/04/14 17:46:48 [emerg] 1#1: unknown directive "<!DOCTYPE" in /etc/nginx/sites-enabled/index.html:4
+2017/04/14 17:47:26 [emerg] 1#1: unknown directive "<!DOCTYPE" in /etc/nginx/sites-enabled/index.html:4
+2017/04/14 18:04:33 [error] 14#14: *6 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:81/", host: "localhost"
+2017/04/14 18:18:47 [error] 14#14: *8 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:81/", host: "localhost"
+2017/04/14 18:23:53 [error] 14#14: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:80/", host: "172.18.0.3"
+2017/04/14 18:25:27 [error] 14#14: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:80/", host: "172.18.0.3"
+2017/04/14 18:26:29 [emerg] 1#1: invalid URL prefix in /etc/nginx/sites-enabled/proxy.conf:7
+2017/04/14 18:27:11 [emerg] 1#1: invalid URL prefix in /etc/nginx/sites-enabled/proxy.conf:7
+2017/04/14 18:28:06 [emerg] 1#1: unexpected end of file, expecting ";" or "}" in /etc/nginx/sites-enabled/proxy.conf:10
+2017/04/14 18:28:54 [error] 14#14: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:80/", host: "172.18.0.3"
+2017/04/14 18:42:59 [error] 14#14: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:80/", host: "172.18.0.2"

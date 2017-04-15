@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  proxy:
+    image: sameersbn/nginx:1.10.3
+    hostname: proxy
+    ports:
+     - "8080:80"
+    volumes:
+     - ./nginx/sites-enabled:/etc/nginx/sites-enabled
+     - ./logs/proxy/nginx/:/var/log/nginx 
+    networks:
+     - internal
+  
+  front1:
+    image: sameersbn/nginx:1.10.3
+    hostname: front1
+    
+    volumes:
+     #- ./nginx_front1/sites-enabled:/etc/nginx/sites-enabled
+     - ./logs/front1/nginx/:/var/log/nginx
+     - ./nginx_front1/www:/usr/share/nginx/html
+    networks:
+     - internal
+
+
+networks:
+  internal:
+    driver: bridge
