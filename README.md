@@ -17,7 +17,7 @@ docker-compose up -d
   
   take this ip and 
   ```sh
-     php test.`php 10000 <proxyIP> 10`
+     php test.php 10000 <proxyIP> 10
   ```
   
   this creates 10 runs with 100000 requests
