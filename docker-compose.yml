@@ -1,29 +1,36 @@
 version: '2'
-
 services:
   proxy:
-    image: sameersbn/nginx:1.10.3
-    hostname: proxy
-    ports:
-     - "8080:80"
+    image: nginx
     volumes:
-     - ./nginx/sites-enabled:/etc/nginx/sites-enabled
-     - ./logs/proxy/nginx/:/var/log/nginx 
-    networks:
-     - internal
-  
-  front1:
-    image: sameersbn/nginx:1.10.3
-    hostname: front1
-    
+     - ./config/nginx_base:/etc/nginx
+     - ./config/nginx_proxy/sites-enabled:/etc/nginx/sites-enabled
+     - ./log/nginx_proxy/:/var/log/nginx
+
+  nginx_frontend:
+    image: nginx
     volumes:
-     #- ./nginx_front1/sites-enabled:/etc/nginx/sites-enabled
-     - ./logs/front1/nginx/:/var/log/nginx
-     - ./nginx_front1/www:/usr/share/nginx/html
-    networks:
-     - internal
+     - ./config/nginx_base:/etc/nginx
+     - ./config/nginx_frontend/sites-enabled:/etc/nginx/sites-enabled
+     - ./log/nginx_frontend/front/nginx/:/var/log/nginx
+    volumes_from:
+     - wwwdata
 
+  php70:
+      image: mittax/lemp-php70
+      environment:
+        PHP_ENV: 'development'
+      volumes:
+        - ./config/php/pool70/:/etc/php/7.0/fpm/pool.d
+        - ./config/php/ini70/development.ini:/etc/php/mods-available/development.ini
+        - ./config/php/ini70/production.ini:/etc/php/mods-available/production.ini
+        - ./log/php70:/var/log/php
+      volumes_from:
+        - wwwdata
+      restart: always
 
-networks:
-  internal:
-    driver: bridge
+  wwwdata:
+      container_name: wwwdata
+      image: mittax/lemp-wwwdata
+      volumes:
+        - ./www:/var/www

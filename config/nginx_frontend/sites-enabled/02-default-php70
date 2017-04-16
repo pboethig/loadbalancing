@@ -1,0 +1,24 @@
+server {
+    listen 80 default_server;
+    server_name _ localhost php70.dev www.php70.dev;
+
+    index index.php index.html;
+    root /var/www;
+
+    charset utf-8;
+
+    access_log /var/log/nginx/default-php70-access.log;
+    error_log  /var/log/nginx/default-php70-error.log error;
+
+    location ~ \.php$ {
+        fastcgi_pass php70;
+
+        try_files $uri =404;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+
+        internal;
+    }
+}
+
