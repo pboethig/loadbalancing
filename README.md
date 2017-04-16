@@ -16,7 +16,9 @@ docker-compose up -d
   docker inspect loadbalancing_proxy_1
   
   take this ip and 
-  php test.php 10000 <proxyIP> 10
+  ```sh
+     php test.`php 10000 <proxyIP> 10`
+  ```
   
   this creates 10 runs with 100000 requests
  
