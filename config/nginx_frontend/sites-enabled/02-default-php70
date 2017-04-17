@@ -10,15 +10,25 @@ server {
     access_log /var/log/nginx/default-php70-access.log;
     error_log  /var/log/nginx/default-php70-error.log error;
 
-    location ~ \.php$ {
-        fastcgi_pass php70;
 
-        try_files $uri =404;
-            fastcgi_index index.php;
-            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-            include fastcgi_params;
+        location / {
+            autoindex on;
+            try_files $uri =404;
+        }
 
-        internal;
-    }
+        location ~ \.php$ {
+            try_files $uri =404;
+
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            if (!-f $document_root$fastcgi_script_name) {
+                return 404;
+            }
+
+            include         fastcgi_params;
+            fastcgi_index   index.php;
+            fastcgi_param   SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_param   DOCUMENT_ROOT $document_root;
+            fastcgi_pass    php70;
+        }
 }
 

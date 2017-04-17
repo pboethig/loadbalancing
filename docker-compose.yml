@@ -17,7 +17,7 @@ services:
      - wwwdata
 
   php70:
-      image: mittax/lemp-php70
+      image: servivum/php:7.0-fpm
       environment:
         PHP_ENV: 'development'
       volumes:
